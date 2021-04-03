@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="styles/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bmabey/pyLDAvis@3.2.2/pyLDAvis/js/ldavis.v1.0.0.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" id="map-tab" data-toggle="tab" href="#map" role="tab" aria-controls="map" aria-selected="true">Карта</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="region-tab" data-toggle="tab" href="#regions" role="tab" aria-controls="regions" aria-selected="false">Области</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="words-tab" data-toggle="tab" href="#words" role="tab" aria-controls="words" aria-selected="false">Ключевые слова</a>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="map" role="tabpanel" aria-labelledby="map-tab">
+            <!--<div class='tableauPlaceholder d-flex justify-content-center' id='viz1616917368522' style='position: relative; width: 900px; height: 700px;'>
+                <noscript>
+                    <a href='#'>
+                        <img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;WT&#47;WTZGCGSBN&#47;1_rss.png' style='border: none' />
+                    </a>
+                </noscript>
+                <object class='tableauViz'  style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                    <param name='embed_code_version' value='3' /> 
+                    <param name='path' value='shared&#47;WTZGCGSBN' /> 
+                    <param name='toolbar' value='yes' />
+                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;WT&#47;WTZGCGSBN&#47;1.png' /> 
+                    <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' /><param name='language' value='en' />
+                    <param name='filter' value='publish=yes' />
+                </object>
+            </div>  -->
+        </div>
+        <div class="tab-pane fade" id="regions" role="tabpanel" aria-labelledby="regions-tab">
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Регион</button>
+                <div id="myDropdown" class="dropdown-content">
+                  <input type="text" placeholder="Поиск.." id="myInput" onkeyup="filterFunction()">
+                </div>
+            </div>
+            <div class="dropdown">
+                <button id='bttn' onclick="myFunction1()" class="dropbtn" style="display: none">Услуга</button>
+                <div id="myDropdown1" class="dropdown-content">
+                  <!--<input type="text" placeholder="Поиск.." id="myInput1" onkeyup="filterFunction1()">-->
+                </div>
+            </div>
+            <div id='container1'>
+                <div id='graph1'>
+                    <canvas id='chart1' role='img'></canvas>
+                </div>
+                <div id='desc1'></div>
+            </div>
+            <div id='container2'>
+                <div id='graph2'>
+                    <canvas id='chart2' role='img'></canvas>
+                </div>
+                <div id='desc2'></div>
+            </div>
+            <div id='container3'>
+                <div id='graph3'>
+                    <canvas id='chart3' role='img'></canvas>
+                </div>
+                <div id='mfcdiv'>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade d-flex justify-content-center" id="words" role="tabpanel" aria-labelledby="words-tab">
+            <!--<div id="ldavis_el284961402602354792966216342070"></div>-->
+        </div>
+      </div>
+
+    
+
+    <!--<script src="scripts/map.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--<script src="scripts/word.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js" integrity="sha512-zO8oeHCxetPn1Hd9PdDleg5Tw1bAaP0YmNvPY8CwcRyUk7d7/+nyElmFrB6f7vg4f7Fv4sui1mcep8RIEShczg==" crossorigin="anonymous"></script>
+    <script src="scripts/s.js"></script>
+</body>
+</html>
