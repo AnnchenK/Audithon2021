@@ -438,7 +438,7 @@ function servData(serv)
             month_statistic.push((month1[t])[serv])
         else
             month_statistic.push(0)
-    if (mfcUrl != '')
+    if (mfcUrl != undefined)
     {
         var mfc1 = JSON.parse(mfc.response)
         var mfc_names = Object.keys(mfc1[serv])
